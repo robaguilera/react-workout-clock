@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class ClockDisplay extends Component {
+export default React.createClass({
     render() {
         return (
             <div className="clock-display">
@@ -20,6 +20,4 @@ class ClockDisplay extends Component {
             </div>
         );
     }
-}
-
-export default ClockDisplay;
+})

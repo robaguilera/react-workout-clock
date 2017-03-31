@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class AppHeader extends Component {
+export default React.createClass({
     render() {
         return (
             <header>
@@ -16,6 +16,4 @@ class AppHeader extends Component {
             </header>
         );
     }
-}
-
-export default AppHeader;
+})
