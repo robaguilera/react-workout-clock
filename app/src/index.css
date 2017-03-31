@@ -1,4 +1,4 @@
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+@import url('https://fonts.googleapis.com/css?family=Orbitron|Lato:100,300,400');
 *,
 *:before,
 *:after {
@@ -71,13 +71,17 @@ header {
 .header-item {
   flex: 1 1 33%;
 }
+
 .header-item.-center {
   text-align: center;
+  flex: 2 0 auto;
 }
+
 .header-item.-center h3 {
   font-weight: 100;
   opacity: .6;
 }
+
 .header-item.-right {
   text-align: right;
 }
@@ -85,7 +89,7 @@ header {
 .clock-display {
   background: #21182A;
   color: #FFF;
-  padding: 45px 0;
+  padding: 45px 15px;
   text-align: center;
 }
 
@@ -94,10 +98,7 @@ header {
   margin: 0 auto;
 }
 
-.current-time {
-  display: inline-block;
-}
-.current-time h2 {
+.time h2 {
   font-size: 50px;
   letter-spacing: 3px;
 }
