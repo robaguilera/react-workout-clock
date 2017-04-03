@@ -21,7 +21,8 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
-i {
+i,
+li[class^='fa'] {
   cursor: pointer;
 }
 
@@ -157,9 +158,14 @@ header {
   opacity: .8;
 }
 
+.timer-controls-wrapper {
+  background: #21182A;
+  padding-top: 25px;
+}
+
 footer {
   background: #21182A;
-  padding: 30px 0 0;
+  padding: 15px 0 0;
   border-bottom-right-radius: 8px;
   border-bottom-left-radius: 8px;
 }
