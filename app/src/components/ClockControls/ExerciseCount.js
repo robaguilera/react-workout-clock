@@ -2,9 +2,9 @@ import React from 'react';
 
 export default React.createClass({
   getInitialState () {
-      return {
-          exerciseCount: 0
-      }
+    return {
+      exerciseCount: 0
+    }
   },
   incrementCount () {
     let count = this.state.exerciseCount;
