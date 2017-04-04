@@ -8,11 +8,6 @@ import AppFooter from './AppFooter/AppFooter';
 export default React.createClass({
   getInitialState () {
     return {
-      time: {
-        hour: 0,
-        min: 0,
-        sec: 0
-      },
       timerHasStarted: false
     }
   },
@@ -25,7 +20,7 @@ export default React.createClass({
     return (
       <div className='workout-clock'>
         <AppHeader />      
-        <ClockDisplay timerHasStarted={this.state.timerHasStarted} timer={this.state.time} />
+        <ClockDisplay timerHasStarted={this.state.timerHasStarted} />
         <ClockControls />
         <TimerControls timerHasStarted={this.state.timerHasStarted} toggleTimer={this.toggleTimer}/>
         <AppFooter />
