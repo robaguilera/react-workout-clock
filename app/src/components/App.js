@@ -12,16 +12,22 @@ export default React.createClass({
         hour: 0,
         min: 0,
         sec: 0
-      }
+      },
+      timerHasStarted: false
     }
+  },
+  toggleTimer() {
+    this.setState(prevState => ({
+      timerHasStarted : !prevState.timerHasStarted
+    }));
   },
   render() {
     return (
       <div className='workout-clock'>
         <AppHeader />      
-        <ClockDisplay timer={this.state.time} />
+        <ClockDisplay timerHasStarted={this.state.timerHasStarted} timer={this.state.time} />
         <ClockControls />
-        <TimerControls />
+        <TimerControls timerHasStarted={this.state.timerHasStarted} toggleTimer={this.toggleTimer}/>
         <AppFooter />
       </div>
     );
