@@ -20,9 +20,9 @@ export default React.createClass({
     return (
       <div className='workout-clock'>
         <AppHeader />      
-        <ClockDisplay timerHasStarted={this.state.timerHasStarted} />
+        <ClockDisplay timerHasStarted={this.state.timerHasStarted} toggleTimer={this.toggleTimer} />
         <ClockControls />
-        <TimerControls timerHasStarted={this.state.timerHasStarted} toggleTimer={this.toggleTimer}/>
+        <TimerControls timerHasStarted={this.state.timerHasStarted} toggleTimer={this.toggleTimer} />
         <AppFooter />
       </div>
     );

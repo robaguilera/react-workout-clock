@@ -2,8 +2,7 @@ import React from 'react';
 
 export default React.createClass({
   render () {
-    const hasStarted = this.props.timerHasStarted;
-    const buttonText = hasStarted ? 'Pause' : 'Start'; 
+    const buttonText = this.props.hasStarted ? 'Pause' : 'Start'; 
     return (
       <div className='timer-controls-wrapper'>
         <div className='clock-buttons'>

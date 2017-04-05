@@ -3,25 +3,44 @@ import React from 'react';
 export default React.createClass({
   getInitialState () {
     return {
-      timer: {
-        hour: 0,
-        min: 0,
-        sec: 0
-      }
+      sec: 0,
+      min: 0,
+      hour: 0,
+      timerRunning: false
     }
   },
-  componentDidUpdate (prevProps, prevState) {
-    let timerFunction = setInterval(this.timer, 1000);
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.timerHasStarted && !this.state.timerRunning) {
+       this.intervalID = setInterval(this.tick, 1000);
+    } else if (!this.props.timerHasStarted){
+      clearInterval(this.intervalID);
+    }
   },
-  timer () {
-    this.setState({
-    })
+  tick () {
+    const newState = {
+      sec: this.state.sec + 1,
+      min: this.state.min,
+      hour: this.state.hour,
+      timerRunning: true
+    };
+
+    if (newState.sec > 59) {
+      newState.sec = 0;
+      newState.min += 1;
+    }
+
+    if (newState.min > 59) {
+      newState.min = 0;
+      newState.hour += 1;
+    }
+
+    this.setState( newState );
   },
   render() {
-    let { hour, min, sec } = this.state.timer;
-    hour = hour < 9 ? `0${hour}` : hour;
-    min = min < 9 ? `0${min}` : min; 
-    sec = sec < 9 ? `0${sec}` : sec;
+    let { hour, min, sec } = this.state;
+    hour = hour <= 9 ? `0${hour}` : hour;
+    min = min <= 9 ? `0${min}` : min; 
+    sec = sec <= 9 ? `0${sec}` : sec;
     return (
       <div className="clock-display">
         <div className='time'>
