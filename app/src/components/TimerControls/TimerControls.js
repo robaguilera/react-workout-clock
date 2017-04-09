@@ -6,10 +6,10 @@ export default React.createClass({
     return (
       <div className='timer-controls-wrapper'>
         <div className='clock-buttons'>
-          <button className='btn-action' onClick={this.props.toggleTimer}>
+          <button className='btn-action' onClick={this.props.toggleTimer} >
             {buttonText}
           </button>
-          <button className='btn-inactive'>Stop</button>
+          <button className='btn-inactive' onClick={this.props.stopTimer} >Stop</button>
         </div>
       </div>
     )
