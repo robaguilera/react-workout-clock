@@ -18,7 +18,8 @@ export default React.createClass({
         pvMin: 0,
         pvSec: 0
       },
-      timerRunning: false
+      timerRunning: false,
+      intervalID: null
     }
   },
   toggleTimer () {
@@ -26,13 +27,40 @@ export default React.createClass({
       timerRunning: !this.state.timerRunning
     })
   },
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.intervalID === null && this.state.timerRunning) {
+      this.setState({ intervalID: setInterval(this.tick, 1000) });
+    } else if (this.state.intervalID !== null && !this.state.timerRunning) {
+      clearInterval(this.state.intervalID);
+      this.setState({ intervalID : null });
+    }
+  },
+  tick () {
+    const newState = {
+        sec: this.state.currentTime.sec + 1,
+        min: this.state.currentTime.min,
+        hour: this.state.currentTime.hour
+    };
+
+    if (newState.sec > 59) {
+      newState.sec = 0;
+      newState.min += 1;
+    }
+
+    if (newState.min > 59) {
+      newState.min = 0;
+      newState.hour += 1;
+    }
+
+    this.setState({ currentTime: newState });
+  },
   render() {
     return (
       <div className='workout-clock'>
         <AppHeader />
-        <ClockDisplay isTimerRunning={this.state.timerRunning} currentTime={this.state.currentTime} prevTime={this.state.prevTime} />
+        <ClockDisplay currentTime={this.state.currentTime} prevTime={this.state.prevTime} />
         <ClockControls />
-        <TimerControls isTimerRunning={this.state.timerRunning} toggleTimer={this.toggleTimer} />
+        <TimerControls toggleTimer={this.toggleTimer} />
         <AppFooter />
       </div>
     );
