@@ -2,7 +2,7 @@ import React from 'react';
 
 export default React.createClass({
   render () {
-    const buttonText = this.props.hasStarted ? 'Pause' : 'Start'; 
+    const buttonText = this.props.isTimerRunning ? 'Pause' : 'Start';
     return (
       <div className='timer-controls-wrapper'>
         <div className='clock-buttons'>

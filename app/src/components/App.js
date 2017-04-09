@@ -8,21 +8,31 @@ import AppFooter from './AppFooter/AppFooter';
 export default React.createClass({
   getInitialState () {
     return {
-      timerHasStarted: false
+      currentTime: {
+        hour: 0,
+        min: 0,
+        sec: 0
+      },
+      prevTime: {
+        pvHour: 0,
+        pvMin: 0,
+        pvSec: 0
+      },
+      timerRunning: false
     }
   },
-  toggleTimer() {
-    this.setState(prevState => ({
-      timerHasStarted : !prevState.timerHasStarted
-    }));
+  toggleTimer () {
+    this.setState({
+      timerRunning: !this.state.timerRunning
+    })
   },
   render() {
     return (
       <div className='workout-clock'>
-        <AppHeader />      
-        <ClockDisplay timerHasStarted={this.state.timerHasStarted} toggleTimer={this.toggleTimer} />
+        <AppHeader />
+        <ClockDisplay currentTime={this.state.currentTime} prevTime={this.state.prevTime} />
         <ClockControls />
-        <TimerControls timerHasStarted={this.state.timerHasStarted} toggleTimer={this.toggleTimer} />
+        <TimerControls isTimerRunning={this.state.timerRunning} toggleTimer={this.toggleTimer} />
         <AppFooter />
       </div>
     );
