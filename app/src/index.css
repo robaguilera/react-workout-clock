@@ -99,12 +99,12 @@ header {
   text-align: center;
 }
 
-.time {
+.current-time {
   width: 90%;
   margin: 0 auto;
 }
 
-.time h2 {
+.current-time h2 {
   font-size: 50px;
   letter-spacing: 3px;
 }

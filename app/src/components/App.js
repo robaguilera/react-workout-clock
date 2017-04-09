@@ -30,7 +30,7 @@ export default React.createClass({
     return (
       <div className='workout-clock'>
         <AppHeader />
-        <ClockDisplay currentTime={this.state.currentTime} prevTime={this.state.prevTime} />
+        <ClockDisplay isTimerRunning={this.state.timerRunning} currentTime={this.state.currentTime} prevTime={this.state.prevTime} />
         <ClockControls />
         <TimerControls isTimerRunning={this.state.timerRunning} toggleTimer={this.toggleTimer} />
         <AppFooter />
