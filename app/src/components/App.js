@@ -1,7 +1,7 @@
 import React from 'react';
 import AppHeader from './AppHeader/AppHeader';
 import ClockDisplay from './ClockDisplay/ClockDisplay';
-import ClockControls from './ClockControls/ClockControls';
+import SetRepControls from './SetRepControls/SetRepControls';
 import TimerControls from './TimerControls/TimerControls';
 import AppFooter from './AppFooter/AppFooter';
 
@@ -82,7 +82,7 @@ export default React.createClass({
       <div className='workout-clock'>
         <AppHeader />
         <ClockDisplay currentTime={this.state.currentTime} prevTime={this.state.prevTime} />
-        <ClockControls />
+        <SetRepControls />
         <TimerControls isTimerRunning={this.state.timerRunning} toggleTimer={this.toggleTimer} stopTimer={this.stopTimer} />
         <AppFooter />
       </div>
